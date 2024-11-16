@@ -2,115 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Webpage for the Most Beautiful Girl on the Planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the Most Beautiful Woman</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff5f8;
+            color: #333;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            background: linear-gradient(to bottom, #ff9eb5, #ffc4d6);
-            font-family: "Georgia", serif;
-            color: #5a3e3e;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #d9476b;
+            align-items: center;
+            height: 100vh;
             text-align: center;
-            margin: 20px 0 10px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.5s ease;
         }
 
-        h2 {
-            color: #7a2b47;
-            text-align: center;
-            font-size: 1.8em;
-            margin-bottom: 30px;
+        #home, #result {
+            display: none;
         }
 
-        p {
-            color: #4a2d3d;
-            text-align: center;
-            max-width: 600px;
-            line-height: 1.6;
-            font-size: 1.2em;
-            margin: 10px;
+        #home {
+            display: block;
         }
 
-        .poem {
-            background-color: rgba(255, 245, 247, 0.8);
-            border: 2px solid #d9476b;
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin: 30px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        .button {
+            padding: 10px 20px;
+            background-color: #ff6b9d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
 
-        .image-container {
-            margin: 30px 0;
-            text-align: center;
+        .button:hover {
+            background-color: #ff4d84;
         }
 
-        .image-container img {
+        #result img {
             width: 300px;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border: 4px solid #d9476b;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .hearts {
-            position: absolute;
-            font-size: 20px;
+        #result h1 {
+            margin-top: 20px;
             color: #ff6b9d;
-            animation: float 3s infinite;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            50% {
-                transform: translateY(-20px) rotate(10deg);
-                opacity: 1;
-            }
+        #result p {
+            margin: 15px auto;
+            font-size: 18px;
+            max-width: 600px;
+            color: #555;
+        }
+
+        #result .back-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #c5c5c5;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #result .back-button:hover {
+            background-color: #a5a5a5;
         }
     </style>
 </head>
 <body>
-    <h1>Webpage for the Most Beautiful Girl on the Planet</h1>
-    <h2>Rishvi Mukhopadhyay</h2>
-    <div class="image-container">
-        <img src="YOUR_IMAGE_URL_OR_PATH" alt="Beautiful Girl">
+    <!-- Home Page -->
+    <div id="home">
+        <h1>Click to find the most beautiful woman in the world</h1>
+        <button class="button" onclick="showResult()">Click Here</button>
     </div>
-    <p>Here is the most beautiful girl in the world!✨</p>
-    <div class="poem">
-        <p>Love, a single soul shared by two,<br>
-        A light in darkness, pure and true.<br>
-        Its madness, heaven’s sweetest art,<br>
-        A blessing divine, that stirs the heart.<br><br>
-        At the touch of love, everyone becomes a poet.</p>
+
+    <!-- Result Page -->
+    <div id="result">
+        <h1>Rishvi Mukhopadhyay</h1>
+        <img src="C:\Users\Administrator\Desktop\rishvipic" alt="Rishvi Mukhopadhyay" id="girlfriend-pic">
+        <p>
+            A light in darkness, pure and true.<br>
+            Its madness, heaven’s sweetest art,<br>
+            A blessing divine, that stirs the heart.<br><br>
+            At the touch of love, everyone becomes a poet.
+        </p>
+        <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
     <script>
-        // Add floating hearts
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'hearts';
-            heart.innerHTML = '♥';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.opacity = 0;
-            document.body.appendChild(heart);
+        function showResult() {
+            // Show the result page
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
 
-            setTimeout(() => {
-                heart.remove();
-            }, 3000);
+            // Optional: Add a transition effect
+            document.body.style.backgroundColor = '#ffeef8';
         }
 
-        setInterval(createHeart, 1000);
+        function goBack() {
+            // Go back to the home page
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+
+            // Optional: Reset background color
+            document.body.style.backgroundColor = '#fff5f8';
+        }
     </script>
 </body>
 </html>
